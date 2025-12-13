@@ -87,7 +87,7 @@ namespace PlaylistCore {
                 return GetDefaultCoverImage();
             }
             // get and write texture
-            auto texture = UnityEngine::Texture2D::New_ctor(0, 0, UnityEngine::TextureFormat::RGBA32, false, false);
+            auto texture = UnityEngine::Texture2D::New_ctor(1, 1, UnityEngine::TextureFormat::RGBA32, false, false);
             LOG_INFO("Loading image of playlist {}", playlist->name);
             try {
                 UnityEngine::ImageConversion::LoadImage(texture, System::Convert::FromBase64String(imageBase64));  // copy
@@ -227,7 +227,7 @@ namespace PlaylistCore {
                 continue;
             }
             // sanatize hash by converting to png
-            auto texture = UnityEngine::Texture2D::New_ctor(0, 0, UnityEngine::TextureFormat::RGBA32, false, false);
+            auto texture = UnityEngine::Texture2D::New_ctor(1, 1, UnityEngine::TextureFormat::RGBA32, false, false);
             try {
                 UnityEngine::ImageConversion::LoadImage(texture, bytes);
             } catch (std::exception const& exc) {
